@@ -4,9 +4,9 @@
         <p>{{ cartItem.price }}</p>
         <p v-if="currentCartItem.count">{{ currentCartItem.count * cartItem.boxCount }}</p>
         <div class="cart--item_actions">
-        <button @click="removeFromCart(cartItem)">Delete</button>
-        <button @click="decreaseCount(cartItem)">Remove</button>
-        <button @click="increaseCount(cartItem)">Add</button>
+            <button @click="removeFromCart(cartItem)">Delete</button>
+            <button @click="decreaseCount(cartItem)">Remove</button>
+            <button @click="increaseCount(cartItem)">Add</button>
         </div>
     </article>
 </template>
@@ -23,10 +23,10 @@ const cartStore = useCartStore();
 const currentCartItem = computed(() => cartStore.cart.find((item) => item.id === props.cartItem.id) || {}); 
 const removeFromCart = (cartItem) => {
   cartStore.REMOVE_FROM_CART(cartItem, true);
-};
+}
 const decreaseCount = (cartItem) => {
   cartStore.REMOVE_FROM_CART(cartItem);
-};
+}
 const increaseCount = (cartItem) => {
   cartStore.ADD_TO_CART(cartItem);
 }

@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
+import { useCartStore } from '~/stores/cart_store';
 
 export const useOrderStore = defineStore('orderStore', {
   state: () => {
     return {
       order: {
-        customerId,
-        cart: [],
+        //customerId,
+        // cart: [],
         total: 0,
         discounts: [],
         services: [],
@@ -18,7 +19,8 @@ export const useOrderStore = defineStore('orderStore', {
       }
     }
   },
-  submitOrder: (payload) => {
-
+  submitOrder: async (payload) => {
+    const cartStore = useCartStore();
+    this.order.cart = cartStore.cart;
   }
 })
